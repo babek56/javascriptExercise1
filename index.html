@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="button" value="addStudent" onclick="addStudent()" type="text">
+    <input type="button" value="showStudents" onclick="showStudents()" type="text">
+
+    <div id="students"> </div>
+
+
+    <script>
+        var students = new Array();
+        var ctn = 0;
+
+        function addStudent() {
+            var fName = prompt("Enter your first name:")
+            var lName = prompt("Enter your last name:")
+            var age = prompt("Enter your age:")
+            var std = {
+                fName: fName,
+                lName: lName,
+                age: age
+            }
+            students[ctn++] = std; // first add ctn  to students next sum it with 1 
+
+        }
+
+        function showStudents() {
+            var table = "<table align='center' border='1' width='300'><tr><th>fistName</th><th>lastName</th><th>age</th></tr>"
+            for (var i = 0; i < students.length; ++i) {
+                table += "<tr>"
+                table += "<td>" + students[i].fName + "</td>"
+                table += "<td>" + students[i].lName + "</td>"
+                table += "<td>" + students[i].age + "</td>"
+                table += "</tr>"
+            }
+            table += "</table>"
+            document.getElementById('students').innerHTML = table
+        }
+    </script>
+</body>
+
+</html>
